@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { background: #080a0f; scroll-behavior: smooth; }
+body { margin: 0; text-rendering: optimizeLegibility; }
+::selection { background: rgb(103 232 249 / 0.22); }
