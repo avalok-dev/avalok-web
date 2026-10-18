@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Github } from "lucide-react";
 import { site } from "@/lib/site";
+import { MobileMenu } from "@/components/MobileMenu";
 
 const nav = [
   { href: "/docs/", label: "Docs" },
@@ -28,6 +29,7 @@ export function Header() {
           >
             <Github className="h-4 w-4" /> <span>GitHub</span>
           </a>
+          <div className="ml-2"><MobileMenu items={nav} /></div>
         </nav>
       </div>
     </header>
