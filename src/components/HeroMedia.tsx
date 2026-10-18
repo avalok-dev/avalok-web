@@ -28,7 +28,7 @@ export function HeroMedia() {
         {demo && demo !== "demo.gif" ? (
           <video src={src} autoPlay loop muted playsInline className="block w-full" aria-label={alt} />
         ) : (
-          <img src={src} alt={alt} className="block w-full" />
+          <img src={src} alt={alt} width={1600} height={960} fetchPriority="high" decoding="async" className="block h-auto w-full" />
         )}
       </div>
     </div>
