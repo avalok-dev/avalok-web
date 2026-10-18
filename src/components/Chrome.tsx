@@ -5,6 +5,7 @@ import { MobileMenu } from "@/components/MobileMenu";
 
 const nav = [
   { href: "/docs/", label: "Docs" },
+  { href: "/changelog/", label: "Changelog" },
   { href: "/privacy/", label: "Privacy" },
   { href: "/roadmap/", label: "Roadmap" },
 ];
@@ -51,6 +52,7 @@ export function Footer() {
         <div className="space-y-2">
           <p className="text-fg">Product</p>
           <Link href="/docs/" className="block hover:text-fg">Docs</Link>
+          <Link href="/changelog/" className="block hover:text-fg">Changelog</Link>
           <Link href="/roadmap/" className="block hover:text-fg">Roadmap</Link>
           <Link href="/privacy/" className="block hover:text-fg">Privacy</Link>
         </div>

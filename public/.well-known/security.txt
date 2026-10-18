@@ -1,0 +1,6 @@
+Contact: https://github.com/avalok-dev/avalok/security/advisories/new
+Contact: mailto:hello@avalok.dev
+Expires: 2027-10-17T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://avalok.dev/.well-known/security.txt
+Policy: https://github.com/avalok-dev/avalok/blob/main/SECURITY.md

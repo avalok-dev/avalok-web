@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { ArrowRight, Boxes, Cable, FileText, Github, Layers, Radar, ShieldCheck } from "lucide-react";
 import { CopyCommand } from "@/components/CopyCommand";
 import { HeroMedia } from "@/components/HeroMedia";
 import { Code, SectionHead } from "@/components/Section";
+import { JsonLd } from "@/components/JsonLd";
+import { faq } from "@/lib/faq";
+import { graph, softwareApplication } from "@/lib/schema";
 import { npmPublished, site } from "@/lib/site";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const works = ["Claude Code", "Codex", "OpenTelemetry", "OpenInference", "Terraform", "Kubernetes", "Helm", "Docker Compose", "TypeScript", "Python"];
 
@@ -21,17 +27,16 @@ const features = [
   { icon: ShieldCheck, title: "Local-first, provably", body: "The tool has no account, analytics or cloud. Both servers bind to 127.0.0.1. You can verify that yourself in one command." },
 ];
 
-const faq = [
-  ["Does anything leave my machine?", "No. The Avalok tool has no cloud service, account, analytics, crash reporting or update check. It analyses your repository without executing it, uploading source or calling an LLM."],
-  ["Which agents does it support?", "Codex through its local session files, and Claude Code through OpenTelemetry traces and opt-in hooks. Kiro and Cursor are on the roadmap. Any OTLP/HTTP trace source works too."],
-  ["What does it need?", "Node.js 22.12 or newer. Then run npx avalok in a repository."],
-  ["Is it free?", "Yes. The code is Apache-2.0. A hosted or team tier may exist someday as a separate product and would not change what the local edition does."],
-  ["Does it understand my whole system?", "No, and it does not claim to. It reports what it detected, observed or inferred, with evidence. Deep analysis covers TypeScript and Python; other languages are inventoried."],
-];
 
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={graph(softwareApplication, {
+          "@type": "FAQPage",
+          mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+        })}
+      />
       <section className="relative overflow-hidden">
         <div className="glow pointer-events-none absolute inset-0 -z-10" />
         <div className="bg-grid pointer-events-none absolute inset-0 -z-10" />
