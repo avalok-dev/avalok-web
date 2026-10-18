@@ -1,0 +1,71 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { CodeCopyEnhancer } from "@/components/CodeCopyEnhancer";
+import { JsonLd } from "@/components/JsonLd";
+import { Toc } from "@/components/Toc";
+import { getPosts, renderMarkdown } from "@/lib/content";
+import { breadcrumbs, graph } from "@/lib/schema";
+import { site } from "@/lib/site";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const posts = getPosts();
+  // Static export needs at least one param; with no published posts the route is simply absent.
+  return posts.length ? posts.map((p) => ({ slug: p.slug })) : [{ slug: "__none__" }];
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const p = getPosts().find((x) => x.slug === slug);
+  if (!p) return {};
+  return {
+    title: p.title,
+    description: p.description,
+    alternates: { canonical: `/blog/${slug}/` },
+    openGraph: { type: "article", title: p.title, description: p.description, publishedTime: String(p.data.date), url: `${site.url}/blog/${slug}/` },
+  };
+}
+
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPosts().find((x) => x.slug === slug);
+  if (!post) notFound();
+  const { html, toc } = await renderMarkdown(post.raw);
+  const url = `${site.url}/blog/${slug}/`;
+  return (
+    <div className="relative">
+      <div className="glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-72" />
+      <JsonLd
+        data={graph(
+          {
+            "@type": "BlogPosting",
+            "@id": `${url}#post`,
+            headline: post.title,
+            description: post.description,
+            url,
+            datePublished: String(post.data.date),
+            dateModified: post.updated,
+            inLanguage: "en",
+            image: `${site.url}/og.png`,
+            author: { "@id": `${site.url}/#org` },
+            publisher: { "@id": `${site.url}/#org` },
+            isPartOf: { "@id": `${site.url}/#website` },
+            mainEntityOfPage: url,
+          },
+          breadcrumbs([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }, { name: post.title, path: `/blog/${slug}/` }]),
+        )}
+      />
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 xl:grid-cols-[minmax(0,44rem)_13rem] xl:justify-center">
+        <article className="min-w-0">
+          <p className="eyebrow">Blog · <time dateTime={String(post.data.date)}>{String(post.data.date)}</time></p>
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed text-muted">{post.description}</p>
+          <div className="prose-avalok mt-10" dangerouslySetInnerHTML={{ __html: html }} />
+          <CodeCopyEnhancer />
+        </article>
+        <Toc items={toc} />
+      </div>
+    </div>
+  );
+}

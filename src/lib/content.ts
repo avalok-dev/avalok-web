@@ -87,3 +87,7 @@ export function getDocs(): Entry[] {
 export function getChangelog(): Entry[] {
   return readCollection("changelog").sort((a, b) => (a.updated < b.updated ? 1 : -1));
 }
+
+export function getPosts(): Entry[] {
+  return readCollection("blog").sort((a, b) => (a.updated < b.updated ? 1 : -1));
+}

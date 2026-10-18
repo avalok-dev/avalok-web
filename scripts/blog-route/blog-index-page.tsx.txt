@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
+import { getPosts } from "@/lib/content";
+import { breadcrumbs, graph } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Guides and notes on understanding what AI coding agents do to your codebase, from the Avalok team.",
+  alternates: { canonical: "/blog/", types: { "application/rss+xml": "/feed.xml" } },
+};
+
+export default function Blog() {
+  const posts = getPosts();
+  if (posts.length === 0) notFound();
+  return (
+    <div className="relative">
+      <div className="glow pointer-events-none absolute inset-0 -z-10 h-72" />
+      <JsonLd data={graph(breadcrumbs([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }]))} />
+      <div className="mx-auto max-w-3xl px-5 pt-20">
+        <p className="eyebrow">Blog</p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Notes from Avalok</h1>
+        <div className="mt-12 divide-y divide-white/[0.07] border-y border-white/[0.07]">
+          {posts.map((p) => (
+            <Link key={p.slug} href={`/blog/${p.slug}/`} className="block py-7 transition hover:bg-white/[0.02]">
+              <time dateTime={String(p.data.date)} className="text-sm text-muted">{String(p.data.date)}</time>
+              <h2 className="mt-1 text-xl font-semibold tracking-tight">{p.title}</h2>
+              <p className="mt-2 text-muted">{p.description}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
