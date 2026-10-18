@@ -15,7 +15,7 @@ export default function Privacy() {
         <h2>The product</h2>
         <ul className="list-disc space-y-1 pl-5">
           <li>The dashboard and receiver bind to <code>127.0.0.1</code> only.</li>
-          <li>No Avalok account, analytics, crash reporting or update check.</li>
+          <li>The Avalok tool has no account, analytics, crash reporting or update check.</li>
           <li>Repository analysis never executes your code, uploads source or calls an LLM.</li>
           <li>Exports never include prompts, run titles, commands, file paths or secret-looking values, and you see a preview first.</li>
           <li>Avalok stores only its own observed runs and UI settings in your user-data directory. <code>avalok data clear</code> removes them.</li>
@@ -32,7 +32,12 @@ lsof -nP -iTCP -sTCP:LISTEN | grep -E ":(4737|4318)"
 
       <section>
         <h2>This website</h2>
-        <p>avalok.dev is a static site. It sets no cookies and runs no analytics or third-party scripts. Fonts are served from this site.</p>
+        <p>
+          avalok.dev is a static site. It sets no cookies and loads no third-party scripts; fonts are served from this site. It does
+          use Vercel Web Analytics to count visits. That is cookieless and does not follow you across sites: it records page views,
+          referrer, country, device and browser type, and when someone copies the install command. It does not store your IP
+          address or build a profile of you. The Avalok tool itself has no analytics at all.
+        </p>
       </section>
 
       <section>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { Header, Footer } from "@/components/Chrome";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

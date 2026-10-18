@@ -18,11 +18,11 @@ const features = [
   { icon: Radar, title: "Agent replay", body: "Codex sessions are read from disk, read-only. Claude Code comes in through its OpenTelemetry traces and opt-in hooks. Scrub a timeline of what happened." },
   { icon: Cable, title: "OpenTelemetry native", body: "Point any OTLP/HTTP trace exporter at the local receiver. No Collector needed. OpenInference spans show up as agent activity." },
   { icon: FileText, title: "Recaps for your PR", body: "A card, an HTML replay anyone can open, an architecture diagram for your README, and Markdown. Prompts, commands and file paths are never included." },
-  { icon: ShieldCheck, title: "Local-first, provably", body: "No account, analytics or cloud. Both servers bind to 127.0.0.1. You can verify that yourself in one command." },
+  { icon: ShieldCheck, title: "Local-first, provably", body: "The tool has no account, analytics or cloud. Both servers bind to 127.0.0.1. You can verify that yourself in one command." },
 ];
 
 const faq = [
-  ["Does anything leave my machine?", "No. Avalok has no cloud service, account, analytics, crash reporting or update check. It analyses your repository without executing it, uploading source or calling an LLM."],
+  ["Does anything leave my machine?", "No. The Avalok tool has no cloud service, account, analytics, crash reporting or update check. It analyses your repository without executing it, uploading source or calling an LLM."],
   ["Which agents does it support?", "Codex through its local session files, and Claude Code through OpenTelemetry traces and opt-in hooks. Kiro and Cursor are on the roadmap. Any OTLP/HTTP trace source works too."],
   ["What does it need?", "Node.js 22.12 or newer. Then run npx avalok in a repository."],
   ["Is it free?", "Yes. The code is Apache-2.0. A hosted or team tier may exist someday as a separate product and would not change what the local edition does."],
