@@ -21,7 +21,7 @@ const steps = [
 const features = [
   { icon: Boxes, title: "Architecture, detected", body: "Services, routes, model and datastore integrations from TypeScript and Python. Every element shows its evidence and a confidence level." },
   { icon: Layers, title: "Infrastructure in context", body: "Terraform, Kubernetes, Helm, Docker and Compose are parsed as data, then linked to the services they deploy. Configured, not live state." },
-  { icon: Radar, title: "Agent replay", body: "Codex sessions are read from disk, read-only. Claude Code comes in through its OpenTelemetry traces and opt-in hooks. Scrub a timeline of what happened." },
+  { icon: Radar, title: "Agent replay", body: "Codex and Claude Code sessions are read from disk, read-only, with no setup. Scrub a timeline of what happened." },
   { icon: Cable, title: "OpenTelemetry native", body: "Point any OTLP/HTTP trace exporter at the local receiver. No Collector needed. OpenInference spans show up as agent activity." },
   { icon: FileText, title: "Recaps for your PR", body: "A card, an HTML replay anyone can open, an architecture diagram for your README, and Markdown. Prompts, commands and file paths are never included." },
   { icon: ShieldCheck, title: "Local-first, provably", body: "The tool has no account, analytics or cloud. Both servers bind to 127.0.0.1. You can verify that yourself in one command." },
