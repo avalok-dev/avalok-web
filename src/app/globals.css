@@ -3,6 +3,28 @@
 @tailwind utilities;
 
 :root { color-scheme: dark; }
-html { background: #080a0f; scroll-behavior: smooth; }
-body { margin: 0; text-rendering: optimizeLegibility; }
-::selection { background: rgb(103 232 249 / 0.22); }
+html { background: #06080c; scroll-behavior: smooth; }
+body { margin: 0; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+::selection { background: rgb(103 232 249 / 0.25); }
+
+@layer components {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(148 163 184 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(148 163 184 / 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+  .glow {
+    background:
+      radial-gradient(40% 50% at 30% 0%, rgb(103 232 249 / 0.16), transparent 70%),
+      radial-gradient(35% 45% at 75% 5%, rgb(167 139 250 / 0.14), transparent 70%);
+  }
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-white/[0.025] shadow-[inset_0_1px_0_0_rgb(255_255_255/0.04)];
+  }
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-accent;
+  }
+}

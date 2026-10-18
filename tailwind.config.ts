@@ -5,18 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#080a0f",
-        card: "hsl(220 26% 9%)",
-        line: "hsl(215 22% 18%)",
-        muted: "hsl(215 16% 57%)",
-        fg: "hsl(210 40% 96%)",
+        bg: "#06080c",
+        fg: "#e8edf5",
+        muted: "#8b96a8",
         accent: "#67e8f9",
         violet: "#a78bfa",
         mint: "#34d399",
       },
       fontFamily: {
-        sans: ["Geist", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        sans: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
     },
   },

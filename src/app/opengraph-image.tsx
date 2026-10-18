@@ -1,0 +1,25 @@
+import { ImageResponse } from "next/og";
+export const dynamic = "force-static";
+export const alt = "Avalok: see what your coding agent did to your architecture";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default function Image() {
+  return new ImageResponse(
+    (
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: 80, background: "#06080c", color: "#e8edf5", position: "relative" }}>
+        <div style={{ position: "absolute", top: -200, left: 100, width: 700, height: 500, background: "radial-gradient(closest-side, rgba(103,232,249,0.25), transparent)", display: "flex" }} />
+        <div style={{ position: "absolute", top: -150, right: 0, width: 600, height: 450, background: "radial-gradient(closest-side, rgba(167,139,250,0.22), transparent)", display: "flex" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+          <svg width="72" height="72" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#0d1118" stroke="#1e2633"/><circle cx="20" cy="32" r="5" fill="#67e8f9"/><circle cx="44" cy="18" r="5" fill="#a78bfa"/><circle cx="44" cy="46" r="5" fill="#34d399"/><path d="M25 30 39 20M25 34l14 10" fill="none" stroke="#64748b" strokeWidth="3" strokeLinecap="round"/></svg>
+          <div style={{ fontSize: 44, fontWeight: 600 }}>Avalok</div>
+        </div>
+        <div style={{ marginTop: 48, fontSize: 76, lineHeight: 1.05, fontWeight: 600, letterSpacing: -2, display: "flex", flexWrap: "wrap" }}>
+          See what your coding agent did to your architecture.
+        </div>
+        <div style={{ marginTop: 40, fontSize: 30, color: "#8b96a8", display: "flex" }}>Local-first · No account · npx avalok</div>
+      </div>
+    ),
+    size,
+  );
+}
