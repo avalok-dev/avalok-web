@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { track } from "@vercel/analytics";
 
 export function CopyCommand({ command }: { command: string }) {
   const [done, setDone] = useState(false);
@@ -11,7 +10,6 @@ export function CopyCommand({ command }: { command: string }) {
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(command);
-          track("copy_install_command", { command });
           setDone(true);
           setTimeout(() => setDone(false), 1800);
         } catch {}

@@ -35,7 +35,7 @@ lsof -nP -iTCP -sTCP:LISTEN | grep -E ":(4737|4318)"
         <p>
           avalok.dev is a static site. It sets no cookies and loads no third-party scripts; fonts are served from this site. It does
           use Vercel Web Analytics to count visits. That is cookieless and does not follow you across sites: it records page views,
-          referrer, country, device and browser type, and when someone copies the install command. It does not store your IP
+          referrer, country, and device and browser type. It does not store your IP
           address or build a profile of you. The Avalok tool itself has no analytics at all.
         </p>
       </section>
