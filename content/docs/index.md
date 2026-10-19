@@ -37,4 +37,4 @@ npx avalok demo
 
 ## Current version
 
-Avalok is a developer preview (`0.1.0-alpha.1`). Interfaces and data formats may change between alpha releases. See the [changelog](/changelog/) and [limits](/docs/limits/).
+Avalok is a developer preview (`0.1.0-alpha.2`). Interfaces and data formats may change between alpha releases. See the [changelog](/changelog/) and [limits](/docs/limits/).

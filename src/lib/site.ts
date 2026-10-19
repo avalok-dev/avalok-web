@@ -12,6 +12,6 @@ export const site = {
   npm: "https://www.npmjs.com/package/avalok",
   issues: "https://github.com/avalok-dev/avalok/issues/new",
   email: "hello@avalok.dev",
-  version: "0.1.0-alpha.1",
+  version: "0.1.0-alpha.2",
   releaseDate: "2026-10-15",
 };
