@@ -32,9 +32,9 @@ npx avalok demo
 ## Connect an agent
 
 - **Codex** needs no setup. See [Codex](/docs/codex/).
-- **Claude Code** needs one command. See [Claude Code](/docs/claude-code/).
+- **Claude Code** needs no setup either. See [Claude Code](/docs/claude-code/).
 - **Anything with OpenTelemetry** can send traces to the local receiver. See [OpenTelemetry](/docs/opentelemetry/).
 
 ## Current version
 
-Avalok is a developer preview (`0.1.0-alpha.1`). Interfaces and data formats may change between alpha releases. See the [changelog](/changelog/) and [limits](/docs/limits/).
+Avalok is a developer preview (`0.1.0-alpha.2`). Interfaces and data formats may change between alpha releases. See the [changelog](/changelog/) and [limits](/docs/limits/).

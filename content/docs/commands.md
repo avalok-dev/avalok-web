@@ -14,7 +14,7 @@ All commands run locally. None of them upload anything.
 | `avalok recap` | Markdown summary of the newest agent session in this repository, ready for a pull request |
 | `avalok wrapped` | Your agent week as a card (counts only) |
 | `avalok doctor` | Check the setup without starting anything |
-| `avalok setup claude` | Print the Claude Code settings; `--apply` writes them after you confirm |
+| `avalok setup claude` | Optional: print the Claude Code hook settings; `--apply` writes them after you confirm. Not needed to see sessions |
 | `avalok setup codex` | Show how many Codex sessions Avalok can read |
 | `avalok feedback` | Print a prefilled GitHub issue link (nothing is sent) |
 | `avalok data path` | Show where Avalok keeps its own data |
